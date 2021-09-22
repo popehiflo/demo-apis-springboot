@@ -1,14 +1,16 @@
 package com.springsimplespasos.hibernate.entidades;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
+@Table(name = "entidades")
 public class SimpleEntity implements Serializable {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer codigo;
+    @Column(name = "descripcion", nullable = false, unique = true, length = 70)
     private String nombre;
 
     public SimpleEntity() {
