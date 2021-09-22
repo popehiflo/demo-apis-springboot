@@ -38,7 +38,7 @@
         <property name="hbm2ddl.auto">update</property>
 
         <!-- Names the annotated entity class -->
-
+        <mapping class="com.springsimplespasos.hibernate.entidades.SimpleEntity"></mapping>
 
 
     </session-factory>
