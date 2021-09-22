@@ -31,8 +31,19 @@ public class HibernateMain {
         session.delete(entityDelete);*/
 
         /* Read */
-        SimpleEntity entityRead = session.get(SimpleEntity.class, 1);
-        System.out.println(entityRead.getNombre());
+        /*SimpleEntity entityRead = session.get(SimpleEntity.class, 1);
+        System.out.println(entityRead.getNombre());*/
+
+        /* Create - Update automatico */
+        SimpleEntity entityCreate = new SimpleEntity();
+        entityCreate.setNombre("Descripcion!");
+
+        SimpleEntity entityUpdate = new SimpleEntity();
+        entityUpdate.setCodigo(1);
+        entityUpdate.setNombre("Descripcion automatica!");
+
+        session.saveOrUpdate(entityCreate);
+        session.saveOrUpdate(entityUpdate);
 
         session.getTransaction().commit();
         session.close();
