@@ -45,6 +45,8 @@
         <mapping class="com.springsimplespasos.hibernate.entidades.manytoone.Persona"></mapping>
         <mapping class="com.springsimplespasos.hibernate.entidades.manytoone.Telefono"></mapping>
 
+        <mapping class="com.springsimplespasos.hibernate.entidades.manytomany.Usuario"></mapping>
+        <mapping class="com.springsimplespasos.hibernate.entidades.manytomany.Publicacion"></mapping>
 
     </session-factory>
 </hibernate-configuration>
