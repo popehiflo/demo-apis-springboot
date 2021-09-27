@@ -26,12 +26,15 @@ public class MainManyToMany {
 
         session.beginTransaction();
 
-        session.saveOrUpdate(admin);
+        /*session.saveOrUpdate(admin);
         session.saveOrUpdate(user);
         session.saveOrUpdate(post01);
         session.saveOrUpdate(post02);
         session.saveOrUpdate(post10);
-        session.saveOrUpdate(post11);
+        session.saveOrUpdate(post11);*/
+
+        Usuario usuario = session.get(Usuario.class, 2);
+        usuario.getPublicaciones().forEach( post -> System.out.println(post.getTexto()));
 
         session.getTransaction().commit();
         session.close();
