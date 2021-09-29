@@ -1,10 +1,27 @@
 package com.popehiflo.demo.demo_universidad.backend.modelo.entidades;
 
+import javax.persistence.*;
 import java.math.BigDecimal;
+import java.util.Set;
 
+@Entity
+@Table(name = "profesores")
+@PrimaryKeyJoinColumn(name = "persona_id")
 public class Profesor extends Persona {
 
     private BigDecimal sueldo;
+    @ManyToMany(
+            fetch = FetchType.LAZY,
+            cascade = {
+                    CascadeType.PERSIST,
+                    CascadeType.MERGE
+            })
+    @JoinTable(
+            name = "profesor_carrera",
+            joinColumns = @JoinColumn(name = "profesor_id"),
+            inverseJoinColumns = @JoinColumn(name = "carrera_id")
+    )
+    private Set<Carrera> carreras;
 
     public Profesor() {
     }
@@ -20,5 +37,21 @@ public class Profesor extends Persona {
 
     public void setSueldo(BigDecimal sueldo) {
         this.sueldo = sueldo;
+    }
+
+    public Set<Carrera> getCarreras() {
+        return carreras;
+    }
+
+    public void setCarreras(Set<Carrera> carreras) {
+        this.carreras = carreras;
+    }
+
+    @Override
+    public String toString() {
+        return super.toString() +
+                "\t Profesor{" +
+                "sueldo=" + sueldo +
+                '}';
     }
 }
