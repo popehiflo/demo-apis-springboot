@@ -15,7 +15,7 @@ public class Alumno extends Persona {
             },
             fetch = FetchType.LAZY
     )
-    @JoinColumn(name = "carrera_id")
+    @JoinColumn(name = "carrera_id", foreignKey = @ForeignKey(name = "FK_CARRERA_ID"))
     private Carrera carrera;
 
     public Alumno() {
